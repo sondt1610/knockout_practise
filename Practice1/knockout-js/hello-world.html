@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script type='text/javascript' src='lib/knockout-2.2.0.debug.js'></script>
+	</head>
+<body onLoad="onLoad()">
+<script type="text/javascript">
+
+function AppViewModel(first, last) {
+    this.firstName = ko.observable(first);
+    this.lastName = ko.observable(last);
+	this.fullName = ko.computed(function() {
+    return this.firstName() + " " + this.lastName();    
+}, this);
+}
+function stringGen(len) {
+  var text = "";
+  
+  var charset = "abcdefghijklmnopqrstuvwxyz";
+  
+  for (var i = 0; i < len; i++)
+    text += charset.charAt(Math.floor(Math.random() * charset.length));
+  
+  return text;
+}
+function onLoad()
+{
+	let first = stringGen(6);
+
+	let last = stringGen(6);
+	
+	ko.applyBindings(new AppViewModel(first, last));
+}
+
+</script>
+
+<p>First name: <input data-bind="value: firstName" /></p>
+<p>Last name: <input data-bind="value: lastName" /></p>
+
+<p>First name: <strong data-bind="text: firstName"></strong></p>
+<p>Last name: <strong data-bind="text: lastName"></strong></p>
+
+<p>Full name: <strong data-bind="text: fullName"></strong></p>
+
+<input type="button" onclick="onLoad();" value="Click here to random a name"></input>
+
+</body>
+</html>
+
