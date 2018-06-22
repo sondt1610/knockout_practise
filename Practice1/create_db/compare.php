@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "sondt1610";
 $dbname = "magento_training";
 $con = mysqli_connect($servername,$username,$password,$dbname); 
 if(!$con){
@@ -10,7 +10,7 @@ if(!$con){
  
 }
 	$msc = microtime(true);
-	$sql = "SELECT * FROM user WHERE name='Full_name_800'";
+	$sql = "SELECT SQL_NO_CACHE * FROM user WHERE name='Full_name_800'";
 	if(mysqli_query($con,$sql)){
 		$msc = microtime(true)-$msc;
 		echo "Thoi gian thuc hien: ";
@@ -21,7 +21,7 @@ if(!$con){
 	}
 
 	$msc = microtime(true);
-	$sql_index = "SELECT * FROM user_index WHERE name='Full_name_800'";
+	$sql_index = "SELECT SQL_NO_CACHE * FROM user_index WHERE name='Full_name_800'";
 	if(mysqli_query($con,$sql)){
 		$msc = microtime(true)-$msc;
 		echo "Thoi gian thuc hien khi co index: ";

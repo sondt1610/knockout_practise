@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "sondt1610";
 $dbname = "magento_training";
 $con = mysqli_connect($servername,$username,$password,$dbname); 
 if(!$con){
